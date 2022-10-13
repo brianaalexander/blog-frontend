@@ -1,7 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
 #posts-index img {
   width: 300px;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+#root {
+  font-family: Verdana;
+  background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/double-bubble-outline.png');
+}
+
+.navvar-brand {
+  font-family: 'Roboto';
+  font-size: 50px;
 }
