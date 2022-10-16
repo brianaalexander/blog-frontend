@@ -1,3 +1,5 @@
+import { LogoutLink } from "./LogoutLink";
+
 export function Header() {
   return (
     <header>
@@ -33,6 +35,19 @@ export function Header() {
                 <a class="nav-link" href="#posts-new">
                   New Post
                 </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#signup">
+                  Signup
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#login">
+                  Login
+                </a>
+              </li>
+              <li className="nav-item">
+                <LogoutLink />
               </li>
             </ul>
             <form class="d-flex" role="search">

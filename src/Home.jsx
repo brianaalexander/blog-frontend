@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { PostsIndex } from "./PostsIndex";
 import { PostsNew } from "./PostsNew";
 import { Modal } from "./Modal";
+import { Signup } from "./Signup";
+import { Login } from "./Login";
 
 export function Home() {
   const [posts, setPosts] = useState([]);
@@ -31,6 +33,8 @@ export function Home() {
 
   return (
     <div className="container">
+      <Signup />
+      <Login />
       <PostsNew />
       <PostsIndex posts={posts} onSelectPost={handleShowPost} />
       <Modal show={isPostsShowVisible} onClose={handleHidePost}>
