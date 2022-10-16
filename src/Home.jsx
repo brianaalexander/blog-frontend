@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { PostsIndex } from "./PostsIndex";
 import { PostsNew } from "./PostsNew";
+import { PostsShow } from "./PostsShow";
 import { Modal } from "./Modal";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
@@ -37,6 +38,23 @@ export function Home() {
     setIsPostsShowVisible(false);
   };
 
+  const handleUpdatePost = (id, params, successCallback) => {
+    console.log("handleUpdatePost", params);
+    axios.patch(`http://localhost:3000/posts/${id}.json`, params).then((response) => {
+      setPosts(
+        posts.map((post) => {
+          if (post.id === response.data.id) {
+            return response.data;
+          } else {
+            return post;
+          }
+        })
+      );
+      successCallback();
+      handleHidePost();
+    });
+  };
+
   useEffect(handleIndexPosts, []);
 
   return (
@@ -47,6 +65,7 @@ export function Home() {
       <PostsIndex posts={posts} onSelectPost={handleShowPost} />
       <Modal show={isPostsShowVisible} onClose={handleHidePost}>
         <p>{currentPost.title}</p>
+        <PostsShow post={currentPost} onUpdatePost={handleUpdatePost} />
       </Modal>
     </div>
   );
