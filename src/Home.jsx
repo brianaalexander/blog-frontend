@@ -67,9 +67,6 @@ export function Home() {
 
   return (
     <div className="container">
-      <Signup />
-      <Login />
-      <PostsNew onCreatePost={handleCreatePost} />
       <PostsIndex posts={posts} onSelectPost={handleShowPost} />
       <Modal show={isPostsShowVisible} onClose={handleHidePost}>
         <p>{currentPost.title}</p>
