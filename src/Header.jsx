@@ -36,19 +36,24 @@ export function Header() {
                   New Post
                 </a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#signup">
-                  Signup
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#login">
-                  Login
-                </a>
-              </li>
-              <li className="nav-item">
-                <LogoutLink />
-              </li>
+              {localStorage.jwt === undefined ? (
+                <>
+                  <li className="nav-item">
+                    <a className="nav-link" href="#signup">
+                      Signup
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="#login">
+                      Login
+                    </a>
+                  </li>
+                </>
+              ) : (
+                <li className="nav-item">
+                  <LogoutLink className="nav-link" />
+                </li>
+              )}
             </ul>
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
