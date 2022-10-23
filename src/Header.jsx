@@ -1,13 +1,14 @@
 import { LogoutLink } from "./LogoutLink";
+import { Link } from "react-router-dom";
 
 export function Header() {
   return (
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <Link class="navbar-brand" to="/">
             Bloggy
-          </a>
+          </Link>
           <button
             class="navbar-toggler"
             type="button"
@@ -22,7 +23,7 @@ export function Header() {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
+                <a class="nav-link active" aria-current="page" href="/">
                   Home
                 </a>
               </li>
@@ -32,21 +33,21 @@ export function Header() {
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#posts-new">
+                <Link class="nav-link" to="/posts/new">
                   New Post
-                </a>
+                </Link>
               </li>
               {localStorage.jwt === undefined ? (
                 <>
                   <li className="nav-item">
-                    <a className="nav-link" href="#signup">
+                    <Link className="nav-link" to="/signup">
                       Signup
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#login">
+                    <Link className="nav-link" to="/login">
                       Login
-                    </a>
+                    </Link>
                   </li>
                 </>
               ) : (

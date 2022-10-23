@@ -1,8 +1,19 @@
-export function PostsNew(props) {
+import axios from "axios";
+
+export function PostsNew() {
+  const handleCreatePost = (params) => {
+    axios.post("http://localhost:3000/posts.json", params).then((response) => {
+      console.log("Created posts", response);
+      window.location.href = "/";
+    });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log("handleSubmit new post");
     const params = new FormData(event.target);
-    props.onCreatePost(params, () => event.target.reset());
+    handleCreatePost(params);
+    event.target.reset();
   };
 
   return (
